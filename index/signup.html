@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <h1>Sign Up</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/login" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+    <script>
+        function updateDepartments() {
+            // Get the college selection and department dropdown elements
+            const college = document.getElementById("college").value;
+            const department = document.getElementById("department");
+
+            // Clear the current options in the department dropdown
+            department.innerHTML = "";
+
+            // Define departments for each college
+            const departments = {
+                CBAS: ["Computer Science and Mathemactics", "Biological Science", "Physics", "Geosciences", "Food Science and Technology", "Chemical Sciences", "Biochemistry"],
+                CHMS: ["Mass Communication", "Languages", "Philosophy & Religion Studies", "Music", "Economics", "Fine and Applied Arts", "Accounting & Finance", "Business Administration"]
+            };
+
+            // Populate the department dropdown based on the selected college
+            if (college in departments) {
+                departments[college].forEach(dept => {
+                    const option = document.createElement("option");
+                    option.value = dept;
+                    option.textContent = dept;
+                    department.appendChild(option);
+                });
+            }
+        }
+    </script>
+
+        <!-- Dropdown for college selection -->
+        <label for="college">College:</label>
+        <select id="college" name="college" onchange="updateDepartments()" required>
+            <option value="">Select College</option>
+            <option value="CBAS">CBAS</option>
+            <option value="CHMS">CHMS</option>
+        </select>
+        <br><br>
+
+        <!-- Dropdown for department selection -->
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Select Department</option>
+        </select>
+    
+            
+            <label for="level">Level:</label>
+            <input type="text" id="level" name="level" required>
+
+            <label for="level">Matric no:</label>
+            <input type="text" id="matric no" name="matric no" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female </option>
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </main>
+</body>
+</html>
